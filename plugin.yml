@@ -1,0 +1,12 @@
+name: PingManager
+
+version: 1.0.0
+
+main: DidntPot\PingManager\Loader
+description: An all-in-one manager for your server.
+website: https://github.com/PM4-PL/PingManager
+
+authors:
+  - DidntPot
+api:
+  - 4.0.0

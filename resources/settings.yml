@@ -1,0 +1,44 @@
+# =====---------------------------------------------------------------------------------=====
+# ██████╗░██╗███╗░░██╗░██████╗░ ███╗░░░███╗░█████╗░███╗░░██╗░█████╗░░██████╗░███████╗██████╗░
+# ██╔══██╗██║████╗░██║██╔════╝░ ████╗░████║██╔══██╗████╗░██║██╔══██╗██╔════╝░██╔════╝██╔══██╗
+# ██████╔╝██║██╔██╗██║██║░░██╗░ ██╔████╔██║███████║██╔██╗██║███████║██║░░██╗░█████╗░░██████╔╝
+# ██╔═══╝░██║██║╚████║██║░░╚██╗ ██║╚██╔╝██║██╔══██║██║╚████║██╔══██║██║░░╚██╗██╔══╝░░██╔══██╗
+# ██║░░░░░██║██║░╚███║╚██████╔╝ ██║░╚═╝░██║██║░░██║██║░╚███║██║░░██║╚██████╔╝███████╗██║░░██║
+# ╚═╝░░░░░╚═╝╚═╝░░╚══╝░╚═════╝░ ╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚══╝╚═╝░░╚═╝░╚═════╝░╚══════╝╚═╝░░╚═╝
+# =====---------------------------------------------------------------------------------=====
+
+# ------------------- GENERAL CONFIGURATION --------------------
+
+# True => Enabled, False => Disabled
+enable_ping_in_nametag: true
+
+# True => Enabled, False => Disabled
+enable_ping_command: true
+
+# True => Enabled, False => Disabled
+enable_max_ping_kick: true
+
+# Recommended value => 200
+max_ping: 200
+
+# ------------------- GENERAL CONFIGURATION --------------------
+
+
+# ------------------- MESSAGE CONFIGURATION --------------------
+
+# {ms} => Ping, & => Use for colors
+format_for_nametag: "&aPing: {ms}"
+
+# {ms} => Ping, & => Use for colors
+msg_player_ping: "&aYour ping is {ms}."
+
+# {target_name} => Targets name, {ms} => Ping, & => Use for colors
+msg_target_ping: "&a{target_name}'s ping is {ms}."
+
+# {max_ping} => Ping, & => Use for colors
+msg_kick_player: "&cYour ping ({max_ping}ms) is unstable."
+
+# {target_name} => Targets name, & => Use for colors
+player_non_existent: "&c{target_name} is not online."
+
+# ------------------- MESSAGE CONFIGURATION --------------------
