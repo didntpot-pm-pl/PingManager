@@ -4,7 +4,7 @@ version: 1.0.0
 
 main: DidntPot\PingManager\Loader
 description: An all-in-one manager for your server.
-website: https://github.com/PM4-PL/PingManager
+website: https://github.com/didntpot-pm-pl/PingManager
 
 authors:
   - DidntPot
