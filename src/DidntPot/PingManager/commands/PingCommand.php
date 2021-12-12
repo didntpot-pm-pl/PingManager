@@ -8,8 +8,9 @@ use DidntPot\PingManager\Loader;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
+use pocketmine\plugin\PluginOwned;
 
-class PingCommand extends Command
+class PingCommand extends Command implements PluginOwned
 {
     public Loader $plugin;
 
@@ -58,5 +59,10 @@ class PingCommand extends Command
 
             $sender->sendMessage($msg);
         }
+    }
+
+    public function getOwningPlugin(): Loader
+    {
+        return $this->plugin;
     }
 }
