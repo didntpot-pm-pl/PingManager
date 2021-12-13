@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace DidntPot\PingManager;
 
 use pocketmine\event\Listener;
-use pocketmine\event\player\PlayerJoinEvent;
+use pocketmine\event\player\PlayerChatEvent;
 use pocketmine\event\player\PlayerLoginEvent;
 
 class EventListener implements Listener
@@ -31,6 +31,8 @@ class EventListener implements Listener
         $player = $ev->getPlayer();
         $ping = $player->getNetworkSession()->getPing();
 
+        if($ev->isCancelled()) return;
+
         if($ping > $this->plugin->getConfig()->get("max_ping", 200))
         {
             $msg = $this->plugin->getConfig()->get("msg_kick_player", "&cYour ping ({max_ping}ms) is unstable.");
@@ -42,20 +44,24 @@ class EventListener implements Listener
     }
 
     /**
-     * @param PlayerJoinEvent $ev
+     * @param PlayerChatEvent $ev
      */
-    public function onJoin(PlayerJoinEvent $ev)
+    public function onChat(PlayerChatEvent $ev)
     {
         $player = $ev->getPlayer();
-        $ping = $player->getNetworkSession()->getPing();
+        $message = $ev->getMessage();
 
-        if($ping > $this->plugin->getConfig()->get("max_ping", 200))
+        if($ev->isCancelled()) return;
+
+        if($this->plugin->getConfig()->get("enable_ping_in_chat_message", true) === true)
         {
-            $msg = $this->plugin->getConfig()->get("msg_kick_player", "&cYour ping ({max_ping}ms) is unstable.");
-            $msg = str_replace("{max_ping}", $this->plugin->getConfig()->get("max_ping", 200), $msg);
-            $msg = str_replace("&", "§", $msg);
+            $format = $this->plugin->getConfig()->get("format_for_chat_message", "&8[&a{ms}&8] &7{player_name}&f: &7{message}");
+            $format = str_replace("{ms}", "" . $player->getNetworkSession()->getPing(), $format);
+            $format = str_replace("{player_name}", $player->getDisplayName(), $format);
+            $format = str_replace("{message}", $message, $format);
+            $format = str_replace("&", "§", $format);
 
-            $player->kick($msg);
+            $ev->setFormat($format);
         }
     }
 }

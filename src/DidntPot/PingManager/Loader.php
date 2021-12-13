@@ -32,9 +32,7 @@ class Loader extends PluginBase
             $this->getServer()->getCommandMap()->register("PingManager", new PingCommand($this));
         }
 
-        if($this->getConfig()->get("enable_max_ping_kick", true) === true)
-        {
-            $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
-        }
+        // Registering by default since 1.0.1.
+        $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
     }
 }
